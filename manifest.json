@@ -1,0 +1,131 @@
+{
+  "schema": "1.0",
+  "details": {
+    "displayName": "IT-Asset-Lifecycle-Flow",
+    "description": "End-to-end laptop lifecycle automation (issue, transfer, replacement, return) using Microsoft Forms, Power Automate, SharePoint, Approvals and Outlook.",
+    "createdTime": "2026-11-17T06:22:02.9395727Z",
+    "packageTelemetryId": "005d92c4-4b8b-4dec-9ed2-86dd598c8b90",
+    "creator": "N/A",
+    "sourceEnvironment": ""
+  },
+  "resources": {
+    "3a8cbe60-46f4-449b-b3d5-9f075e77b852": {
+      "type": "Microsoft.Flow/flows",
+      "suggestedCreationType": "Update",
+      "creationType": "Existing, New, Update",
+      "details": { "displayName": "Computer Issue Flow" },
+      "configurableBy": "User",
+      "hierarchy": "Root",
+      "dependsOn": [
+        "d235afac-3cb3-450e-937f-2a420f319222",
+        "adabf9c0-a9d6-438d-bd89-fde3fda97dd7",
+        "83b44c94-67de-4154-aaff-dbf8ec9a4ef4",
+        "4c7c248d-9a3a-4ae5-b0b6-e5c06f3bb7ec",
+        "49c0ebe5-0317-46a5-bfa3-71d24d4a6995",
+        "aeb7cbf9-e2fa-40e6-ba0c-79f86d8b63d7",
+        "949324c2-1c5c-4b77-bd58-5bc58d8bb359",
+        "0b577112-939d-4c95-b2b9-346276873cb1"
+      ]
+    },
+    "d235afac-3cb3-450e-937f-2a420f319222": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_microsoftforms",
+      "name": "shared_microsoftforms",
+      "type": "Microsoft.PowerApps/apis",
+      "suggestedCreationType": "Existing",
+      "details": {
+        "displayName": "Microsoft Forms",
+        "iconUri": "https://static.powerapps.com/resource/ppcr/releases/v1.0.1819/1.0.1819.4795/microsoftforms/icon.png"
+      },
+      "configurableBy": "System",
+      "hierarchy": "Child",
+      "dependsOn": []
+    },
+    "adabf9c0-a9d6-438d-bd89-fde3fda97dd7": {
+      "type": "Microsoft.PowerApps/apis/connections",
+      "suggestedCreationType": "Existing",
+      "creationType": "Existing",
+      "details": {
+        "displayName": "user@example.com",
+        "iconUri": "https://static.powerapps.com/resource/ppcr/releases/v1.0.1819/1.0.1819.4795/microsoftforms/icon.png"
+      },
+      "configurableBy": "User",
+      "hierarchy": "Child",
+      "dependsOn": ["d235afac-3cb3-450e-937f-2a420f319222"]
+    },
+    "83b44c94-67de-4154-aaff-dbf8ec9a4ef4": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_sharepointonline",
+      "name": "shared_sharepointonline",
+      "type": "Microsoft.PowerApps/apis",
+      "suggestedCreationType": "Existing",
+      "details": {
+        "displayName": "SharePoint",
+        "iconUri": "https://static.powerapps.com/resource/ppcr/releases/v1.0.1834/1.0.1834.5089/sharepointonline/icon.png"
+      },
+      "configurableBy": "System",
+      "hierarchy": "Child",
+      "dependsOn": []
+    },
+    "4c7c248d-9a3a-4ae5-b0b6-e5c06f3bb7ec": {
+      "type": "Microsoft.PowerApps/apis/connections",
+      "suggestedCreationType": "Existing",
+      "creationType": "Existing",
+      "details": {
+        "displayName": "user@example.com",
+        "iconUri": "https://static.powerapps.com/resource/ppcr/releases/v1.0.1834/1.0.1834.5089/sharepointonline/icon.png"
+      },
+      "configurableBy": "User",
+      "hierarchy": "Child",
+      "dependsOn": ["83b44c94-67de-4154-aaff-dbf8ec9a4ef4"]
+    },
+    "49c0ebe5-0317-46a5-bfa3-71d24d4a6995": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_approvals",
+      "name": "shared_approvals",
+      "type": "Microsoft.PowerApps/apis",
+      "suggestedCreationType": "Existing",
+      "details": {
+        "displayName": "Standard approvals",
+        "iconUri": "https://static.powerapps.com/resource/ppcr/releases/v1.0.1826/1.0.1826.4893/approvals/icon.png"
+      },
+      "configurableBy": "System",
+      "hierarchy": "Child",
+      "dependsOn": []
+    },
+    "aeb7cbf9-e2fa-40e6-ba0c-79f86d8b63d7": {
+      "type": "Microsoft.PowerApps/apis/connections",
+      "suggestedCreationType": "Existing",
+      "creationType": "Existing",
+      "details": {
+        "displayName": "Standard approvals",
+        "iconUri": "https://static.powerapps.com/resource/ppcr/releases/v1.0.1826/1.0.1826.4893/approvals/icon.png"
+      },
+      "configurableBy": "User",
+      "hierarchy": "Child",
+      "dependsOn": ["49c0ebe5-0317-46a5-bfa3-71d24d4a6995"]
+    },
+    "949324c2-1c5c-4b77-bd58-5bc58d8bb359": {
+      "id": "/providers/Microsoft.PowerApps/apis/shared_office365",
+      "name": "shared_office365",
+      "type": "Microsoft.PowerApps/apis",
+      "suggestedCreationType": "Existing",
+      "details": {
+        "displayName": "Office 365 Outlook",
+        "iconUri": "https://static.powerapps.com/resource/ppcr/releases/v1.0.1831/1.0.1831.5113/office365/icon.png"
+      },
+      "configurableBy": "System",
+      "hierarchy": "Child",
+      "dependsOn": []
+    },
+    "0b577112-939d-4c95-b2b9-346276873cb1": {
+      "type": "Microsoft.PowerApps/apis/connections",
+      "suggestedCreationType": "Existing",
+      "creationType": "Existing",
+      "details": {
+        "displayName": "user@example.com",
+        "iconUri": "https://static.powerapps.com/resource/ppcr/releases/v1.0.1831/1.0.1831.5113/office365/icon.png"
+      },
+      "configurableBy": "User",
+      "hierarchy": "Child",
+      "dependsOn": ["949324c2-1c5c-4b77-bd58-5bc58d8bb359"]
+    }
+  }
+}
