@@ -74,7 +74,7 @@ flowchart TD
 | Step | Screenshot |
 | --- | --- |
 | Request form | ![Request form](01-request-form.png) |
-| Flow overview | ![Flow overview](screenshots/02-flow-overview.png) |
+| Flow overview | ![Flow overview](02-flow-overview.png) |
 | SharePoint tracking list | ![SharePoint list](screenshots/03-sharepoint-list.png) |
 | Approval email | ![Approval](screenshots/04-approval.png) |
 | Technician capture | ![Technician capture](screenshots/05-technician-capture.png) |
