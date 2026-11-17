@@ -75,9 +75,9 @@ flowchart TD
 | --- | --- |
 | Request form | ![Request form](01-request-form.png) |
 | Flow overview | ![Flow overview](02-flow-overview.png) |
-| SharePoint tracking list | ![SharePoint list](screenshots/03-sharepoint-list.png) |
-| Approval email | ![Approval](screenshots/04-approval.png) |
-| Technician capture | ![Technician capture](screenshots/05-technician-capture.png) |
+| SharePoint tracking list | ![SharePoint list](/03-sharepoint-list.png) |
+| Approval email | ![Approval](04-approval.png) |
+| Technician capture | ![Technician capture](05-technician-capture.png) |
 
 ## Results
 
@@ -85,14 +85,21 @@ flowchart TD
 - **No more approval chasing:** approvals are routed and recorded automatically.
 - **Accurate asset register:** serial numbers and asset tags are captured at the point of issue for 500+ devices.
 - **Faster answers:** IT can see who holds which laptop, and its history, from one list instead of inboxes.
-- [Add a number if you have one, e.g. "Reduced laptop-request emails to IT by about X per month" or "Cut average request turnaround from X days to Y."]
 
 ## How I used AI
 
 I used **Claude** as a design and debugging partner while building this flow:
 
 - **Designing the logic:** I described the four request types and the approval rules, and used Claude to work out the branching structure (conditions and switch cases) and the SharePoint list columns needed to track each request.
-- **Debugging:** [Describe one real failing step, e.g. "The flow failed when matching the technician's capture to the original request because the Request ID came through as text in one step and as a number in another. Claude helped me trace the error from the run history and fix it with a type conversion in the filter query."]
+- **Debugging:** BadRequest on a SharePoint lookup
+**Symptom:** the flow's "try" scope failed with "ActionFailed", and later
+lookups were skipped.
+**Cause:** the Get items filter `RequestID eq '…'` used the column's display
+name, but the Replacement list stored it under a different internal name.
+**Fix:** found the internal name (List settings → column → `Field=` in the
+URL) and updated the filter query.
+**Lesson:** SharePoint OData filters use internal column names, and chained
+"run after" settings let one failure skip everything after it.
 - **Speed:** using AI shortened both build time and troubleshooting, so I could spend more time testing with real users.
 
 ## Repository contents
@@ -128,4 +135,4 @@ it-asset-lifecycle-automation/
 ---
 
 **Author:** Getrude Amodoi, Workflow Automation & Systems Integration
-[LinkedIn](https://www.linkedin.com/in/your-profile) · [GitHub](https://github.com/your-username)
+[GitHub](https://github.com/gamodoi)
